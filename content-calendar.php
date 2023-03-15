@@ -41,3 +41,6 @@ if( !function_exists( 'wpac_plugin_scripts' ) )
     }
     add_action( 'wp_enqueue_scripts', 'wpac_plugin_scripts' );
 }
+
+//setting the menu option
+require plugin_dir_path(__FILE__).'include/setting.php';
