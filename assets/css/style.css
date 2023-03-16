@@ -1,0 +1,26 @@
+.plugin-title,
+.table-title{
+    text-align: center;
+    font-size: 32px;
+}
+
+.content-form,.form-container{
+    display: flex;
+    width: 100%;
+}
+
+.btn{
+    text-align: center;
+}
+
+.content-form{
+    width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 18px;
+}
+
+.content-form div{
+    width: 100%;
+}

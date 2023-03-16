@@ -26,7 +26,7 @@ function form_page()
                     ));
                     foreach($users as $user)
                     {
-                        echo '<option value=">'. $user->ID. '">'. $user->display_name . '</option>';
+                        echo '<option value="'. $user->ID. '">'. $user->display_name . '</option>';
                     }
                 ?>
             </select> <br>   
@@ -41,7 +41,7 @@ function form_page()
                     ));
                     foreach($admins as $admin)
                     {
-                        echo '<option value=">'. $admin->ID. '">'. $admin->display_name . '</option>';
+                        echo '<option value="'. $admin->ID. '">'. $admin->display_name . '</option>';
                     }
                 ?>
             </select>
@@ -56,5 +56,10 @@ function form_page()
 
 function calendar_callback()
 {
+    ?>
+
+    <h1 class="plugin-title"><?php esc_html_e(get_admin_page_title()); ?></h1>
+    <?php
     form_page();
+    cal_schedule();    
 }
