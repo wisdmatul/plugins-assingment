@@ -24,3 +24,51 @@
 .content-form div{
     width: 100%;
 }
+
+.content-form input{
+    width: 50%;
+}
+
+.content-form select{
+    width: 50%;
+}
+
+.content-form label{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#upcoming-table td:first-child {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+  }
+
+  #upcoming-table td:nth-child(2)::before {
+    content: "Date";
+  }
+
+  #upcoming-table td:nth-child(3)::before {
+    content: "Occasion";
+  }
+
+  #upcoming-table td:nth-child(4)::before {
+    content: "Post Title";
+  }
+
+  #upcoming-table td:nth-child(5)::before {
+    content: "Author";
+  }
+  #upcoming-table td:nth-child(6)::before {
+    content: "Reviewer";
+  }
+
+  #upcoming-table td {
+    text-align: right;
+  }
+
+  #upcoming-table td::before {
+    float: left;
+    margin-right: 10px;
+    font-weight: bold;
+  }
