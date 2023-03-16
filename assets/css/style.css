@@ -38,37 +38,24 @@
     margin-bottom: 10px;
 }
 
-#upcoming-table td:first-child {
-    background-color: #222;
-    color: #fff;
+#upcoming-table {
+    border-collapse: collapse;
     text-align: center;
+    width: 95%;
   }
-
-  #upcoming-table td:nth-child(2)::before {
-    content: "Date";
+  
+  #upcoming-table th {
+    background-color: #222222;
+    color: white;
+    text-transform: uppercase;
   }
-
-  #upcoming-table td:nth-child(3)::before {
-    content: "Occasion";
-  }
-
-  #upcoming-table td:nth-child(4)::before {
-    content: "Post Title";
-  }
-
-  #upcoming-table td:nth-child(5)::before {
-    content: "Author";
-  }
-  #upcoming-table td:nth-child(6)::before {
-    content: "Reviewer";
-  }
-
+  
+  #upcoming-table th,
   #upcoming-table td {
-    text-align: right;
+    padding: 8px;
+    font-size: 18px;
   }
-
-  #upcoming-table td::before {
-    float: left;
-    margin-right: 10px;
-    font-weight: bold;
+  
+  #upcoming-table tr {
+    border-bottom: 1px solid #222;
   }
