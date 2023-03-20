@@ -41,11 +41,14 @@
 #upcoming-table {
     border-collapse: collapse;
     text-align: center;
-    width: 95%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid;
   }
   
   #upcoming-table th {
-    background-color: #222222;
+    background-color: blue;
     color: white;
     text-transform: uppercase;
   }
