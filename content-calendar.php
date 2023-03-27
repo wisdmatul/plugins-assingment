@@ -1,54 +1,82 @@
 <?php
 
-/*
-* Plugin Name: Content Calendar
-* Plugin URI : https://wpcontentcalendar.com
-* Author: WordPress
-* Author URI: https://wpcontentcalendar.com
-* Description: a simple conent calendar for the events.
-* version: 1.0.0
-* License: GPL v2 or later
-* License URI: https://www.gnu.org/licenses/gpl-2.0.html
-* Text Domain: wpalike
-*/
+/**
+ * The plugin bootstrap file
+ *
+ * This file is read by WordPress to generate the plugin information in the plugin
+ * admin area. This file also includes all of the dependencies used by the plugin,
+ * registers the activation and deactivation functions, and defines a function
+ * that starts the plugin.
+ *
+ * @link              https://atul.com
+ * @since             1.0.0
+ * @package           Content_Calendar
+ *
+ * @wordpress-plugin
+ * Plugin Name:       content calendar
+ * Plugin URI:        https://atul.com/atul-plugin
+ * Description:       plugin for content calendar
+ * Version:           1.0.0
+ * Author:            atul.com/atul-plugin
+ * Author URI:        https://atul.com
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       content-calendar
+ * Domain Path:       /languages
+ */
 
-//if this file called directly, abort
-if( !defined( 'WPINC' ) )
-{
-    die;
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
-if( !defined( 'WPAC_PLUGIN_VERSION' ) )
-{
-    define( 'WPAC_PLUGIN_VERSION', '1.0.0' );
+/**
+ * Currently plugin version.
+ * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Rename this for your plugin and update it as you release new versions.
+ */
+define( 'CONTENT_CALENDAR_VERSION', '1.0.0' );
+
+/**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-content-calendar-activator.php
+ */
+function activate_content_calendar() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-content-calendar-activator.php';
+	Content_Calendar_Activator::activate();
 }
 
-if( !defined( 'WPAC_PLUGIN_DIR' ) )
-{
-    define( 'WPAC_PLUGIN_DIR', plugin_dir_url(__FILE__) );
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-content-calendar-deactivator.php
+ */
+function deactivate_content_calendar() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-content-calendar-deactivator.php';
+	Content_Calendar_Deactivator::deactivate();
 }
-//print_r(WPAC_PLUGIN_DIR);
 
-if( !function_exists( 'wp_plugin_scripts' ) )
-{
-    function wp_plugin_scripts()
-    {
-        //to include frontend css
-        wp_enqueue_style('wp-css', WPAC_PLUGIN_DIR . 'assets/css/style.css');
+register_activation_hook( __FILE__, 'activate_content_calendar' );
+register_deactivation_hook( __FILE__, 'deactivate_content_calendar' );
 
-        //to include javascript file
-        wp_enqueue_script('wp-js', WPAC_PLUGIN_DIR . 'assets/js/main.js');
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-content-calendar.php';
 
-    }
-  
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    1.0.0
+ */
+function run_content_calendar() {
+
+	$plugin = new Content_Calendar();
+	$plugin->run();
+
 }
-add_action( 'admin_enqueue_scripts', 'wp_plugin_scripts' );
-
-//setting the menu option
-require plugin_dir_path(__FILE__).'include/setting.php';
-
-//adding form for calendar into the page
-require plugin_dir_path(__FILE__).'include/form.php';
-
-//connecting to the database and table creation
-require plugin_dir_path(__FILE__).'include/db.php';
+run_content_calendar();

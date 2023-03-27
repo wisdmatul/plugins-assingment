@@ -1,4 +1,9 @@
-.plugin-title,
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+ .plugin-title,
 .table-title{
     text-align: center;
     font-size: 32px;
